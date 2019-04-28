@@ -6,6 +6,15 @@ session_start();
 // Conexão
 require_once 'db_connect.php';
 
+// Clear
+function clear($input) {
+    global $connect;
+    // sql
+    $var = mysqli_escape_string($connect, $input);
+    $var = htmlspecialchars($var);
+    return $var;
+}
+
 if(isset($_POST['btn-cadastrar'])):
 
     $nome = mysqli_escape_string($connect, $_POST['nome']);
